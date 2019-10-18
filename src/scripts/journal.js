@@ -1,4 +1,4 @@
-console.log("my journal ROCKS!");
+// console.log("my journal ROCKS!");
 const journalEntry1 = {
     entryDate: "10-14-2019",
     conceptCovered: "manipulating the dom with Javascript",
@@ -32,3 +32,20 @@ myJournalEntries.push(journalEntry4);
 
 console.log("array", myJournalEntries);
 console.log("object", journalEntry);
+
+const journalEntryComponent = (journalEntry) => {
+    return `
+    <div class=entries>
+        <div class="date">${journalEntry.entryDate}</div>
+        <div class="concepts">${journalEntry.conceptCovered}</div>
+        <div class="content">${journalEntry.contentsEntered}</div>
+        <div class="mood">${journalEntry.moodOfDay}</div>
+        `
+}
+const journalContainer = document.querySelector(".entryLog");
+
+for (let i = 0; i < myJournalEntries.length; i++) {
+    const entry = myJournalEntries[i];
+    journalContainer.innerHTML += journalEntryComponent(entry);
+    console.log("why are you null", journalEntryComponent)
+}
