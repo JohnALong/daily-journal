@@ -1,6 +1,6 @@
 // console.log("my journal ROCKS!");
 const journalEntry1 = {
-    entryDate: "10-14-2019",
+    date: "10-14-2019",
     conceptCovered: "manipulating the dom with Javascript",
     contentsEntered: "We learned how to use javascript to make a dynamic file that is repeatable without having to manually create each object.",
     moodOfDay: "Bright Eyed",
@@ -36,7 +36,7 @@ console.log("object", journalEntry);
 const journalEntryComponent = (journalEntry) => {
     return `
     <div class=entries>
-        <div class="date">${journalEntry.entryDate}</div>
+        <div class="date">${journalEntry.date}</div>
         <div class="concepts">${journalEntry.conceptCovered}</div>
         <div class="content">${journalEntry.contentsEntered}</div>
         <div class="mood">${journalEntry.moodOfDay}</div>
