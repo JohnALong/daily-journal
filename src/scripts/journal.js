@@ -1,3 +1,3 @@
 API.myData().then(parsedEntries => {
-    entryBreakDown(parsedEntries)
+    allEntries.entryBreakDown(parsedEntries)
 })
