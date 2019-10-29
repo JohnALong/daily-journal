@@ -1,3 +1,4 @@
+import toDom from "./entryComponent.js"
 const allEntries = {
     entryBreakDown: (journalArray) => {
         let htmlString = ""
@@ -9,3 +10,4 @@ const allEntries = {
         const journalDom = document.querySelector(".entryLog").innerHTML = htmlString
     }
 }
+export default allEntries;

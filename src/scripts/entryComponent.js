@@ -1,3 +1,4 @@
+import allEntries from "./entriesDOM.js"
 const toDom = {
     journalEntryComponent: (journalEntry) => {
         return `
@@ -9,3 +10,4 @@ const toDom = {
         `
     }
 }
+export default toDom;
