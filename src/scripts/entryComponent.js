@@ -9,3 +9,6 @@ const toDom = {
         `
     }
 }
+export default toDom;
+
+// function written to populate dom with journal entries and called in entriesDom.js - nothing needed to be imported to this, only exported out to be used in entriesDOM.js
