@@ -11,3 +11,5 @@ const allEntries = {
     }
 }
 export default allEntries;
+
+// entryBreakDown executed from call from journal.js - that function pulls in data from entryComponent.js and loops through that information and exectutes function written in entryComponent.js
