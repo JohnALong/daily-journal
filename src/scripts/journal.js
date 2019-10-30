@@ -10,11 +10,14 @@ API.myData().then(parsedEntries => {
 // waits for that data to be converted to json and 2nd .then executes 
 
 // start of Journal exercise 7 - doing all in main js file for testing before modularizing
-let date = document.getElementById(".date")
-let conceptsCovered = document.getElementById(".concepts")
-let content = document.getElementById(".content")
-let mood = document.getElementById(".mood")
-
+function sendButtonHandle() {
+    // let date = document.getElementById(".date").value
+    // let conceptsCovered = document.getElementById(".concepts").value
+    // let content = document.getElementById(".content").value
+    // let mood = document.getElementById(".mood").value
+    console.log("this works")
+}
+sendButtonHandle()
 
 const createJournalEntry = (date, conceptsCovered, content, mood) => {
     return {
@@ -24,7 +27,9 @@ const createJournalEntry = (date, conceptsCovered, content, mood) => {
         mood: mood
     }
 }
-document.getElementById("submit-button").addEventListener("click", createJournalEntry(date.value, conceptsCovered.value, content.value, mood.value))
+
+
+// document.getElementById("submit-button").addEventListener("click", sendButtonHandle()
 
 
 

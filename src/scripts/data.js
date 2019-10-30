@@ -1,6 +1,7 @@
 const API = {
+    url: "http://localhost:3000/myJournalEntries",
     myData: () => {
-        return fetch("http://localhost:3000/myJournalEntries")
+        return fetch(this.url)
             .then(entries => entries.json())
     }
 }
