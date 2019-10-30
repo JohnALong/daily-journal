@@ -14,7 +14,7 @@
     <form action="">
         <fieldset>
             <label for="journalDate">Date of entry</label>
-            <input type="date" name="journalDate" id="journalDate">
+            <input type="date" name="journalDate" id="date">
         </fieldset>
         <fieldset>
             <label for="conceptsCovered">Concepts Covered</label>
@@ -22,10 +22,10 @@
         </fieldset>
         <fieldset>
             <label for="journalEntry">Journal entry</label>
-            <textarea name="journalEntry" id="journalEntry" cols="30" rows="10">Journal Entry</textarea>
+            <textarea name="journalEntry" id="content" cols="30" rows="10">Journal Entry</textarea>
         </fieldset>
         <fieldset>
-            <select name="moodOfDay" id="moodOfDay">
+            <select name="moodOfDay" id="mood">
                 <option value="exhausted">Exhausted</option>
                 <option value="brightEyed">Bright Eyed</option>
                 <option value="dejected">Dejected</option>
@@ -34,8 +34,8 @@
                 <option value="scared">Scared</option>
             </select>
         </fieldset>
-        <button id="submit-button">Send it!</button>
     </form>
+    <button id="submit-button">Send it!</button>
     <article class="entryLog"></article>
     <script type="module" src="scripts/journal.js"></script>
 </body>

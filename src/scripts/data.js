@@ -2,6 +2,15 @@ const API = {
     myData: () => {
         return fetch("http://localhost:3000/myJournalEntries")
             .then(entries => entries.json())
+    },
+    newEntry: (entryObject) => {
+        fetch("http://localhost:3000/myJournalEntries", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(entryObject)
+        })
     }
 }
 
