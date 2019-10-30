@@ -1,32 +1,46 @@
 {
-    "myJournalEntries": [
-        {
-            "id": 1,
-            "date": "10-14-2019",
-            "conceptCovered": "manipulating the dom with Javascript",
-            "contentsEntered": "We learned how to use javascript to make a dynamic file that is repeatable without having to manually create each object.",
-            "moodOfDay": "Bright Eyed"
-        },
-        {
-            "id": 2,
-            "date": "10-14-2019",
-            "conceptCovered": "accessing objects",
-            "contentsEntered": "using dot and bracket notation how to access deeper elements of an array of objects.  also utilized loops both for, and for in to get info to assist with this.",
-            "moodOfDay": "Nervous"
-        },
-        {
-            "id": 3,
-            "date": "10-14-2019",
-            "conceptCovered": "loops, concatenation, and back tic syntax",
-            "contentsEntered": "built a sentence from individual words in an array.  also added information into the sentence using javascript.",
-            "moodOfDay": "Exhausted"
-        },
-        {
-            "id": 4,
-            "date": "10-14-2019",
-            "conceptCovered": "group project for html and css",
-            "contentsEntered": "how to work as a team, build simple page using htm and css for styling.",
-            "moodOfDay": "Bright Eyed"
-        }
-    ]
+  "myJournalEntries": [
+    {
+      "id": 1,
+      "date": "10-14-2019",
+      "conceptsCovered": "manipulating the dom with Javascript",
+      "content": "We learned how to use javascript to make a dynamic file that is repeatable without having to manually create each object.",
+      "mood": "Bright Eyed"
+    },
+    {
+      "id": 2,
+      "date": "10-14-2019",
+      "conceptsCovered": "accessing objects",
+      "content": "using dot and bracket notation how to access deeper elements of an array of objects.  also utilized loops both for, and for in to get info to assist with this.",
+      "mood": "Nervous"
+    },
+    {
+      "id": 3,
+      "date": "10-14-2019",
+      "conceptsCovered": "loops, concatenation, and back tic syntax",
+      "content": "built a sentence from individual words in an array.  also added information into the sentence using javascript.",
+      "mood": "Exhausted"
+    },
+    {
+      "id": 4,
+      "date": "10-14-2019",
+      "conceptsCovered": "group project for html and css",
+      "content": "how to work as a team, build simple page using htm and css for styling.",
+      "mood": "Bright Eyed"
+    },
+    {
+      "date": "2019-10-30",
+      "conceptsCovered": "POST",
+      "content": "fetch calls with POST",
+      "mood": "exhausted",
+      "id": 5
+    },
+    {
+      "date": "2019-10-30",
+      "conceptsCovered": "refactoring functions",
+      "content": "testing functionality of code",
+      "mood": "amazed",
+      "id": 6
+    }
+  ]
 }
