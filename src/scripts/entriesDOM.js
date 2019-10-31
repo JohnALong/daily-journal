@@ -1,6 +1,6 @@
 import toDom from "./entryComponent.js"
 const allEntries = {
-    entryBreakDown: (journalArray) => {
+    entryToDom: (journalArray) => {
         let htmlString = ""
         journalArray.forEach(entry => {
             console.log("i have no clue")
