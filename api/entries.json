@@ -41,6 +41,20 @@
       "content": "testing functionality of code",
       "mood": "amazed",
       "id": 6
+    },
+    {
+      "date": "2019-10-10",
+      "conceptsCovered": {},
+      "content": "Journal Entry",
+      "mood": "brightEyed",
+      "id": 7
+    },
+    {
+      "date": "2019-10-31",
+      "conceptsCovered": "dynamic html",
+      "content": "Long 3 days - but journal is now dynamically populated, functions are split between modules & imported/exported correctly.",
+      "mood": "exhausted",
+      "id": 8
     }
   ]
 }

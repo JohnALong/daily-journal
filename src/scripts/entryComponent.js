@@ -10,11 +10,11 @@ const toDom = {
         </fieldset>
         <fieldset>
         <label for="conceptsCovered">Concepts Covered</label>
-        <input type="text" name="conceptsCovered" id="conceptsCovered">
+        <input type="text" name="conceptsCovered" id="conceptsCovered" required>
         </fieldset>
         <fieldset>
         <label for="journalEntry">Journal entry</label>
-        <textarea name="journalEntry" id="content" cols="30" rows="10"></textarea>
+        <textarea name="journalEntry" id="content" cols="30" rows="10" required></textarea>
         </fieldset>
         <fieldset>
         <select name="moodOfDay" id="mood">

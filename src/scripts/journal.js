@@ -2,7 +2,9 @@ import API from "./data.js"
 import allEntries from "./entriesDom.js"
 import events from "./events.js"
 import toDom from "./entryComponent.js"
-toDom.journalFormComponent()
+
+allEntries.formToDom()
+
 API.myData().then(parsedEntries => {
     allEntries.entryToDom(parsedEntries)
 })
