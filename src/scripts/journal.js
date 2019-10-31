@@ -1,7 +1,7 @@
 import API from "./data.js"
 import allEntries from "./entriesDom.js"
 import events from "./events.js"
-import toDom from "./entryComponent.js"
+// import toDom from "./entryComponent.js"
 
 allEntries.formToDom()
 
