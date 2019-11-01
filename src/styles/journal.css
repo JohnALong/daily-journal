@@ -3,3 +3,7 @@ fieldset {
     flex-direction: column;
     width: 400px;
 }
+
+.entries {
+    border: 1px solid black;
+}

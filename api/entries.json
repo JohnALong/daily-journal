@@ -5,28 +5,28 @@
       "date": "2019-10-14",
       "conceptsCovered": "manipulating the dom with Javascript",
       "content": "We learned how to use javascript to make a dynamic file that is repeatable without having to manually create each object.",
-      "mood": "Bright Eyed"
+      "mood": "BrightEyed"
     },
     {
       "id": 2,
       "date": "2019-10-14",
       "conceptsCovered": "accessing objects",
       "content": "using dot and bracket notation how to access deeper elements of an array of objects.  also utilized loops both for, and for in to get info to assist with this.",
-      "mood": "Nervous"
+      "mood": "nervous"
     },
     {
       "id": 3,
       "date": "2019-10-14",
       "conceptsCovered": "loops, concatenation, and back tic syntax",
       "content": "built a sentence from individual words in an array.  also added information into the sentence using javascript.",
-      "mood": "Exhausted"
+      "mood": "exhausted"
     },
     {
       "id": 4,
       "date": "2019-10-14",
       "conceptsCovered": "group project for html and css",
       "content": "how to work as a team, build simple page using htm and css for styling.",
-      "mood": "Bright Eyed"
+      "mood": "BrightEyed"
     },
     {
       "date": "2019-10-30",
@@ -46,7 +46,7 @@
       "date": "2019-10-10",
       "conceptsCovered": {},
       "content": "Journal Entry",
-      "mood": "brightEyed",
+      "mood": "BrightEyed",
       "id": 7
     },
     {
@@ -55,6 +55,20 @@
       "content": "Long 3 days - but journal is now dynamically populated, functions are split between modules & imported/exported correctly.",
       "mood": "exhausted",
       "id": 8
+    },
+    {
+      "date": "2019-11-01",
+      "conceptsCovered": "dfasdf",
+      "content": "fsgwdsfg",
+      "mood": "exhausted",
+      "id": 9
+    },
+    {
+      "date": "2019-11-02",
+      "conceptsCovered": "xzvz",
+      "content": "zxcvzxc",
+      "mood": "exhausted",
+      "id": 10
     }
   ]
 }
