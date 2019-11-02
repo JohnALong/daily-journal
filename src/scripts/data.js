@@ -15,6 +15,12 @@ const API = {
     moodEntries: (filterMood) => {
         return fetch(`http://localhost:3000/myJournalEntries?mood=${filterMood}`)
             .then(response => response.json())
+    },
+    deleteEntry: (journalId) => {
+        return fetch (`http://localhost:3000/myJournalEntries/${journalId}`, {
+            method: "DELETE"
+        })
+        .then(response => response.json())
     }
 }
 

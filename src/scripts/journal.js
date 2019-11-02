@@ -3,12 +3,13 @@ import allEntries from "./entriesDom.js"
 import events from "./events.js"
 // import toDom from "./entryComponent.js"
 allEntries.formToDom()
-
+// debugger
 API.myData().then(parsedEntries => {
     allEntries.entryToDom(parsedEntries)
 })
 document.getElementById("submit-button").addEventListener("click", events.handleSendIt)
 events.filterMoodEvent()
+events.deleteJournalEntry()
 
 
 
