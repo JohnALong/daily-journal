@@ -1,4 +1,3 @@
-import events from "./events.js"
 const toDom = {
     journalFormComponent: () => {
         return `
@@ -19,12 +18,23 @@ const toDom = {
         <fieldset>
         <select name="moodOfDay" id="mood">
         <option value="exhausted">Exhausted</option>
-        <option value="brightEyed">Bright Eyed</option>
+        <option value="BrightEyed">Bright Eyed</option>
         <option value="dejected">Dejected</option>
         <option value="amazed">Amazed</option>
         <option value="nervous">Nervous</option>
-        <option value="scared">Scared</option>
         </select>
+        </fieldset>
+        <fieldset>Filter Journal Entries by Mood
+        <input type="radio" id="exhausted" name="moodButton" value="exhausted" checked>
+        <label for="exhausted">Exhausted</label> 
+        <input type="radio" id="brightEyed" name="moodButton" value="brightEyed" checked>
+        <label for="brightEyed">Bright Eyed</label> 
+        <input type="radio" id="dejected" name="moodButton" value="dejected" checked>
+        <label for="dejected">Dejected</label> 
+        <input type="radio" id="amazed" name="moodButton" value="amazed" checked>
+        <label for="amazed">Amazed</label> 
+        <input type="radio" id="nervous" name="moodButton" value="nervous" checked>
+        <label for="nervous">Nervous</label> 
         </fieldset>
         </form>
         <button id="submit-button">Send it!</button>
