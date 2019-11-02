@@ -17,17 +17,21 @@ const events = {
             content: content,
             mood: mood
         }
+    },
+    // new code
+    filterMoodEvent() {
+        let filterMood
+        document.getElementsByName("moodButton").forEach(button => button.addEventListener("click", () => {
+            filterMood = event.target.value
+            console.log("filterMood", filterMood)
+            API.moodEntries(filterMood)
+                .then(response => allEntries.entryToDom(response))
+        }))
+
     }
 }
 
 
-// let moodArray = document.getElementsByName("moodButton")
-// console.log("mood", moodArray)
 
-// moodArray.forEach(mood => {
-//     mood.addEventListener("click", event => {
-//         const thisMood = event.target.value
-//         console.log("values", thisMood)
-//     })
-// })
+
 export default events;

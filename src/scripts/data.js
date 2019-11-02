@@ -11,6 +11,10 @@ const API = {
             },
             body: JSON.stringify(entryObject)
         })
+    },
+    moodEntries: (filterMood) => {
+        return fetch(`http://localhost:3000/myJournalEntries?mood=${filterMood}`)
+            .then(response => response.json())
     }
 }
 
