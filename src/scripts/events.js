@@ -1,6 +1,7 @@
 import API from "./data.js"
 import allEntries from "./entriesDom.js"
 const journalList = document.querySelector("#journalList")
+const formList = document.querySelector(".form")
 console.log("journalList", journalList)
 const events = {
     // send event for new entries
@@ -11,7 +12,7 @@ const events = {
         let mood = document.getElementById("mood--").value
         const entryObject = events.createJournalEntry(date, conceptsCovered, content, mood)
         console.log("please let this work", entryObject)
-        API.newEntry(entryObject).then(API.myData).then(allEntries.entryToDom)
+        API.newEntry(entryObject).then(API.myData).then(allEntries.entryToDom).then(allEntries.formToDom)
     },
     // factory function for entries
     createJournalEntry: (date, conceptsCovered, content, mood) => {
@@ -34,16 +35,41 @@ const events = {
         }))
 
     },
+
+    editJournalEntry: () => {
+        journalList.addEventListener("click", event => {
+            if (event.target.id.startsWith("editEntry--")) {
+                console.log("edit button clicked")
+                const journalIdToEdit = event.target.id.split("--")[1]
+                console.log("edit id", journalIdToEdit)
+                API.updateForm(journalIdToEdit)
+            }
+        })
+    },
+    saveJournalEntry: () => {
+        formList.addEventListener("click", event => {
+            const hiddenJournalId = document.querySelector("#journalId")
+            console.log("hidden id", hiddenJournalId.value)
+            if (event.target.id.startsWith("saveEntry--")) {
+                if (hiddenJournalId.value !== "") {
+                    API.saveEntry(journalId.value)
+                    .then(API.myData)
+                    .then(allEntries.entryToDom)
+                }
+            } else {
+                console.log("it's not working")
+            }
+        })
+    },
     deleteJournalEntry: () => {
         journalList.addEventListener("click", event => {
-            if(event.target.id.startsWith("deleteEntry--")) {
-            const entryToDelete = event.target.id.split("--")[1]
-            console.log("entry to delete", entryToDelete)
-            API.deleteEntry(entryToDelete)
-            .then(API.myData)
-            .then(allEntries.entryToDom)
+            if (event.target.id.startsWith("deleteEntry--")) {
+                const entryToDelete = event.target.id.split("--")[1]
+                console.log("entry to delete", entryToDelete)
+                API.deleteEntry(entryToDelete)
+                    .then(API.myData)
+                    .then(allEntries.entryToDom)
             }
-            console.log("delete listener")
         })
     }
 }
