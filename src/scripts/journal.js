@@ -10,6 +10,8 @@ API.myData().then(parsedEntries => {
 document.getElementById("submit-button").addEventListener("click", events.handleSendIt)
 events.filterMoodEvent()
 events.deleteJournalEntry()
+events.editJournalEntry()
+events.saveJournalEntry()
 
 
 

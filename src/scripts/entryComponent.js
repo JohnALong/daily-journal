@@ -1,8 +1,21 @@
 const toDom = {
+    journalEntryComponent: (journalEntry) => {
+        return `
+        <div class=entries>
+            <div class="date">${journalEntry.date}</div>
+            <div class="concepts">${journalEntry.conceptsCovered}</div>
+            <div class="content">${journalEntry.content}</div>
+            <div class="mood">${journalEntry.mood}</div>
+            <button id="deleteEntry--${journalEntry.id}">Delete Entry</button>
+            <button id="editEntry--${journalEntry.id}">Edit Entry</button>
+        </div>    
+        `
+    },
     journalFormComponent: () => {
         return `
         <h1>Daily Journal</h1>
         <form action="">
+            <input type="hidden" id="journalId" value="" />
             <fieldset>
                 <label for="journalDate">Date of entry</label>
                 <input type="date" name="journalDate" id="date--">
@@ -26,6 +39,7 @@ const toDom = {
              </fieldset>
         </form>
         <button id="submit-button">Send it!</button>
+        <button id="saveEntry--">Save Edited Entry</button>
         <fieldset>Filter Journal Entries by Mood
             <input type="radio" id="exhausted" name="moodButton" value="exhausted" checked>
             <label for="exhausted">Exhausted</label> 
@@ -38,17 +52,6 @@ const toDom = {
             <input type="radio" id="nervous" name="moodButton" value="nervous" checked>
             <label for="nervous">Nervous</label> 
         </fieldset>
-        `
-    },
-    journalEntryComponent: (journalEntry) => {
-        return `
-        <div class=entries>
-            <div class="date">${journalEntry.date}</div>
-            <div class="concepts">${journalEntry.conceptsCovered}</div>
-            <div class="content">${journalEntry.content}</div>
-            <div class="mood">${journalEntry.mood}</div>
-            <button id="deleteEntry--${journalEntry.id}">Delete Entry</button>
-        </div>    
         `
     }
 }
