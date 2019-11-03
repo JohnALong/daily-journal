@@ -12,7 +12,7 @@ const events = {
         let mood = document.getElementById("mood--").value
         const entryObject = events.createJournalEntry(date, conceptsCovered, content, mood)
         console.log("please let this work", entryObject)
-        API.newEntry(entryObject).then(API.myData).then(allEntries.entryToDom)
+        API.newEntry(entryObject).then(API.myData).then(allEntries.entryToDom).then(allEntries.formToDom)
     },
     // factory function for entries
     createJournalEntry: (date, conceptsCovered, content, mood) => {
@@ -50,10 +50,12 @@ const events = {
         formList.addEventListener("click", event => {
             const hiddenJournalId = document.querySelector("#journalId")
             console.log("hidden id", hiddenJournalId.value)
-            if (hiddenJournalId.value !== "") {
-                API.saveRecipe(journalId.value)
+            if (event.target.id.startsWith("saveEntry--")) {
+                if (hiddenJournalId.value !== "") {
+                    API.saveEntry(journalId.value)
                     .then(API.myData)
                     .then(allEntries.entryToDom)
+                }
             } else {
                 console.log("it's not working")
             }

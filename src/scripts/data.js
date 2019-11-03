@@ -24,22 +24,27 @@ const API = {
         const moodInput = document.querySelector("#mood--")
 
         fetch(`http://localhost:3000/myJournalEntries/${journalId}`)
-        .then(response => response.json())
-        .then(entry => {
-            hiddenJournalId.value = entry.id
-            dateInput.value = entry.date
-            conceptsInput.value = entry.conceptsCovered
-            contentInput.value = entry.content
-            moodInput.value = entry.mood
-        })
+            .then(response => response.json())
+            .then(entry => {
+                hiddenJournalId.value = entry.id
+                dateInput.value = entry.date
+                conceptsInput.value = entry.conceptsCovered
+                contentInput.value = entry.content
+                moodInput.value = entry.mood
+            })
     },
-    saveRecipe: (journalId) => {
+    saveEntry: (journalId) => {
         const updatedObject = {
             date: document.querySelector("#date--").value,
             conceptsCovered: document.querySelector("#conceptsCovered--").value,
             content: document.querySelector("#content--").value,
             mood: document.querySelector("#mood--").value
         }
+        // document.querySelector("#date--").value = ""
+        // document.querySelector("#conceptsCovered--").value = ""
+        // document.querySelector("#content--").value = ""
+        // document.querySelector("#mood").value = ""
+
         return fetch(`http://localhost:3000/myJournalEntries/${journalId}`, {
             method: "PUT",
             headers: {
@@ -47,16 +52,20 @@ const API = {
             },
             body: JSON.stringify(updatedObject)
         })
-        .then(res => res.json())
-        .then(() => {
-            document.querySelector("#journalId").value = journalId
-        })
+            .then(res => res.json())
+            .then(() => {
+                document.querySelector("#journalId").value = ""
+                document.querySelector("#date--").value = ""
+                document.querySelector("#conceptsCovered--").value = ""
+                document.querySelector("#content--").value = ""
+                document.querySelector("#mood--").value = ""
+            })
     },
     deleteEntry: (journalId) => {
-        return fetch (`http://localhost:3000/myJournalEntries/${journalId}`, {
+        return fetch(`http://localhost:3000/myJournalEntries/${journalId}`, {
             method: "DELETE"
         })
-        .then(response => response.json())
+            .then(response => response.json())
     }
 }
 
