@@ -44,10 +44,6 @@ const API = {
             content: document.querySelector("#content--").value,
             mood: document.querySelector("#mood--").value
         }
-        // document.querySelector("#date--").value = ""
-        // document.querySelector("#conceptsCovered--").value = ""
-        // document.querySelector("#content--").value = ""
-        // document.querySelector("#mood").value = ""
 
         return fetch(`http://localhost:3000/myJournalEntries/${journalId}`, {
             method: "PUT",
