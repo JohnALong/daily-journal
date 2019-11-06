@@ -1,7 +1,11 @@
+import allEntries from "./entriesDom.js"
 const API = {
     myData: () => {
         return fetch("http://localhost:3000/myJournalEntries")
             .then(entries => entries.json())
+            .then(parsedEntries => {
+                allEntries.entryToDom(parsedEntries)
+            })
     },
     newEntry: (entryObject) => {
         return fetch("http://localhost:3000/myJournalEntries", {

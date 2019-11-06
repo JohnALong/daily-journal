@@ -12,7 +12,7 @@ const toDom = {
         `
     },
     journalFormComponent: () => {
-        return `
+        return /*html*/`
         <h1>Daily Journal</h1>
         <form action="">
             <input type="hidden" id="journalId" value="" />
@@ -38,7 +38,7 @@ const toDom = {
                 </select>
              </fieldset>
         </form>
-        <button id="submit-button">Send it!</button>
+        <button id="submit--button">Send it!</button>
         <button id="saveEntry--">Save Edited Entry</button>
         <fieldset>Filter Journal Entries by Mood
             <input type="radio" id="exhausted" name="moodButton" value="exhausted" checked>

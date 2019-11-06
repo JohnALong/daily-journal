@@ -69,6 +69,13 @@
       "content": "completed edit portion and emptied form fields upon submit",
       "mood": "amazed",
       "id": 11
+    },
+    {
+      "date": "2019-11-05",
+      "conceptsCovered": "ERD",
+      "content": "completed exercise on ERD, the extra link for embed & expand really helped.  Also cleaned up early journal functions into correct modules and made the main.js much cleaner **test on event handler function - testing fix on event handler error**",
+      "mood": "amazed",
+      "id": 12
     }
   ]
 }
