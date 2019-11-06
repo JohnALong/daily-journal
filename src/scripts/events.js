@@ -6,13 +6,17 @@ console.log("journalList", journalList)
 const events = {
     // send event for new entries
     handleSendIt: () => {
-        let date = document.getElementById("date--").value
-        let conceptsCovered = document.getElementById("conceptsCovered--").value
-        let content = document.getElementById("content--").value
-        let mood = document.getElementById("mood--").value
-        const entryObject = events.createJournalEntry(date, conceptsCovered, content, mood)
-        console.log("please let this work", entryObject)
-        API.newEntry(entryObject).then(API.myData).then(allEntries.entryToDom).then(allEntries.formToDom)
+        formList.addEventListener("click", event => {
+            if (event.target.id.startsWith("submit--")) {
+                let date = document.getElementById("date--").value
+                let conceptsCovered = document.getElementById("conceptsCovered--").value
+                let content = document.getElementById("content--").value
+                let mood = document.getElementById("mood--").value
+                const entryObject = events.createJournalEntry(date, conceptsCovered, content, mood)
+                console.log("please let this work", entryObject)
+                API.newEntry(entryObject).then(API.myData).then(allEntries.formToDom)
+            }
+        })
     },
     // factory function for entries
     createJournalEntry: (date, conceptsCovered, content, mood) => {
@@ -53,8 +57,7 @@ const events = {
             if (event.target.id.startsWith("saveEntry--")) {
                 if (hiddenJournalId.value !== "") {
                     API.saveEntry(journalId.value)
-                    .then(API.myData)
-                    .then(allEntries.entryToDom)
+                        .then(API.myData)
                 }
             } else {
                 console.log("it's not working")
@@ -68,7 +71,6 @@ const events = {
                 console.log("entry to delete", entryToDelete)
                 API.deleteEntry(entryToDelete)
                     .then(API.myData)
-                    .then(allEntries.entryToDom)
             }
         })
     }
