@@ -11,6 +11,7 @@ events.filterMoodEvent()
 events.deleteJournalEntry()
 events.editJournalEntry()
 events.saveJournalEntry()
+events.searchJournalEntry()
 
 
 

@@ -50,6 +50,13 @@ const events = {
             }
         })
     },
+    searchJournalEntry: () => {
+        formList.addEventListener("keyup", event => {
+            if (event.target.id.startsWith("searchEntries--") && event.keyCode === 13) {
+                console.log("search button clicked")
+            }
+        })
+    },
     saveJournalEntry: () => {
         formList.addEventListener("click", event => {
             const hiddenJournalId = document.querySelector("#journalId")

@@ -40,18 +40,24 @@ const toDom = {
         </form>
         <button id="submit--button">Send it!</button>
         <button id="saveEntry--">Save Edited Entry</button>
-        <fieldset>Filter Journal Entries by Mood
-            <input type="radio" id="exhausted" name="moodButton" value="exhausted" checked>
-            <label for="exhausted">Exhausted</label> 
-            <input type="radio" id="brightEyed" name="moodButton" value="Bright Eyed" checked>
-            <label for="brightEyed">Bright Eyed</label> 
-            <input type="radio" id="dejected" name="moodButton" value="dejected" checked>
-            <label for="dejected">Dejected</label> 
-            <input type="radio" id="amazed" name="moodButton" value="amazed" checked>
-            <label for="amazed">Amazed</label> 
-            <input type="radio" id="nervous" name="moodButton" value="nervous" checked>
-            <label for="nervous">Nervous</label> 
-        </fieldset>
+        <div id="filterSearch">
+            <div id="filterBox">Filter Journal Entries by Mood
+                <input type="radio" id="exhausted" name="moodButton" value="exhausted" checked>
+                <label for="exhausted">Exhausted</label> 
+                <input type="radio" id="brightEyed" name="moodButton" value="Bright Eyed" checked>
+                <label for="brightEyed">Bright Eyed</label> 
+                <input type="radio" id="dejected" name="moodButton" value="dejected" checked>
+                <label for="dejected">Dejected</label> 
+                <input type="radio" id="amazed" name="moodButton" value="amazed" checked>
+                <label for="amazed">Amazed</label> 
+                <input type="radio" id="nervous" name="moodButton" value="nervous" checked>
+                <label for="nervous">Nervous</label> 
+            </div>
+            <div id="searchBox">
+                <label for="searchEntries">Search Entries</label>
+                <input type="text" name="searchEntries--" id="searchEntries--">
+            </div>
+        </div>
         `
     }
 }
