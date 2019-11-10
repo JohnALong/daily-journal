@@ -7,3 +7,20 @@ fieldset {
 .entries {
     border: 1px solid black;
 }
+#filterSearch {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#filterBox {
+    flex-basis: 40%;
+    border: 1px solid black;
+}
+#searchBox {
+    flex-basis: 40%;
+    border: 1px solid black;
+}
+#filterBox {
+    display: flex;
+    flex-direction: row;
+}

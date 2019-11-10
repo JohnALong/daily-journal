@@ -1,7 +1,7 @@
 import allEntries from "./entriesDom.js"
 const API = {
     myData: () => {
-        return fetch("http://localhost:3000/myJournalEntries")
+        return fetch("http://localhost:3000/myJournalEntries?_sort=date&_order=desc")
             .then(entries => entries.json())
             .then(parsedEntries => {
                 allEntries.entryToDom(parsedEntries)
@@ -44,10 +44,6 @@ const API = {
             content: document.querySelector("#content--").value,
             mood: document.querySelector("#mood--").value
         }
-        // document.querySelector("#date--").value = ""
-        // document.querySelector("#conceptsCovered--").value = ""
-        // document.querySelector("#content--").value = ""
-        // document.querySelector("#mood").value = ""
 
         return fetch(`http://localhost:3000/myJournalEntries/${journalId}`, {
             method: "PUT",
