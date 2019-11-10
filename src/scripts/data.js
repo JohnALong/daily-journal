@@ -1,7 +1,7 @@
 import allEntries from "./entriesDom.js"
 const API = {
     myData: () => {
-        return fetch("http://localhost:3000/myJournalEntries")
+        return fetch("http://localhost:3000/myJournalEntries?_sort=date&_order=desc")
             .then(entries => entries.json())
             .then(parsedEntries => {
                 allEntries.entryToDom(parsedEntries)

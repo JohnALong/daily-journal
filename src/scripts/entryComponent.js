@@ -44,7 +44,7 @@ const toDom = {
             <div id="filterBox">Filter Journal Entries by Mood
                 <input type="radio" id="exhausted" name="moodButton" value="exhausted" checked>
                 <label for="exhausted">Exhausted</label> 
-                <input type="radio" id="brightEyed" name="moodButton" value="Bright Eyed" checked>
+                <input type="radio" id="brightEyed" name="moodButton" value="BrightEyed" checked>
                 <label for="brightEyed">Bright Eyed</label> 
                 <input type="radio" id="dejected" name="moodButton" value="dejected" checked>
                 <label for="dejected">Dejected</label> 

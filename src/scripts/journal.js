@@ -12,6 +12,7 @@ events.deleteJournalEntry()
 events.editJournalEntry()
 events.saveJournalEntry()
 events.searchJournalEntry()
+// events.filterMoodTakeTwo()
 
 
 
