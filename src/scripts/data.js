@@ -7,6 +7,10 @@ const API = {
                 allEntries.entryToDom(parsedEntries)
             })
     },
+    searchData: (searchAll) => {
+        return fetch("http://localhost:3000/myJournalEntries?_sort=date&_order=desc")
+            .then(entries => entries.json())
+    },
     newEntry: (entryObject) => {
         return fetch("http://localhost:3000/myJournalEntries", {
             method: "POST",

@@ -3,6 +3,7 @@ import allEntries from "./entriesDom.js"
 const journalList = document.querySelector("#journalList")
 const formList = document.querySelector(".form")
 console.log("journalList", journalList)
+
 const events = {
     // send event for new entries
     handleSendIt: () => {
@@ -29,7 +30,7 @@ const events = {
         }
     },
 
-
+    // first filter attempt - errored out after editing entries because targeted to actual mood not something that stays on the dom
     // filterMoodEvent: () => {
     //     // filters entries by mood selected
     //     let filterMood
@@ -54,25 +55,30 @@ const events = {
                 }
             })
         })
-},
+    },
 
     editJournalEntry: () => {
         journalList.addEventListener("click", event => {
-        if (event.target.id.startsWith("editEntry--")) {
-            console.log("edit button clicked")
-            const journalIdToEdit = event.target.id.split("--")[1]
-            console.log("edit id", journalIdToEdit)
-            API.updateForm(journalIdToEdit)
-        }
-    })
+            if (event.target.id.startsWith("editEntry--")) {
+                console.log("edit button clicked")
+                const journalIdToEdit = event.target.id.split("--")[1]
+                console.log("edit id", journalIdToEdit)
+                API.updateForm(journalIdToEdit)
+            }
+        })
     },
-searchJournalEntry: () => {
-    formList.addEventListener("keyup", event => {
-        if (event.target.id.startsWith("searchEntries--") && event.keyCode === 13) {
-            console.log("search button clicked")
-        }
-    })
-},
+    searchJournalEntry: () => {
+        formList.addEventListener("keyup", event => {
+            if (event.target.id.startsWith("searchEntries--") && event.keyCode === 13) {
+                const searchValue = document.getElementById("searchEntries--").value
+                console.log("searchValue", searchValue)
+                console.log("search button clicked")
+                API.searchData()
+                .then(response => console.log("search test", response))
+                    .then(response => allEntries.entryToDom(response))
+            }
+        })
+    },
     saveJournalEntry: () => {
         formList.addEventListener("click", event => {
             const hiddenJournalId = document.querySelector("#journalId")
@@ -87,19 +93,16 @@ searchJournalEntry: () => {
             }
         })
     },
-        deleteJournalEntry: () => {
-            journalList.addEventListener("click", event => {
-                if (event.target.id.startsWith("deleteEntry--")) {
-                    const entryToDelete = event.target.id.split("--")[1]
-                    console.log("entry to delete", entryToDelete)
-                    API.deleteEntry(entryToDelete)
-                        .then(API.myData)
-                }
-            })
-        }
+    deleteJournalEntry: () => {
+        journalList.addEventListener("click", event => {
+            if (event.target.id.startsWith("deleteEntry--")) {
+                const entryToDelete = event.target.id.split("--")[1]
+                console.log("entry to delete", entryToDelete)
+                API.deleteEntry(entryToDelete)
+                    .then(API.myData)
+            }
+        })
+    }
 }
-
-
-
 
 export default events;
