@@ -65,7 +65,7 @@
     },
     {
       "date": "2019-11-05",
-      "conceptsCovered": "ERD",
+      "conceptsCovered": "ERD ",
       "content": "completed exercise on ERD, the extra link for embed & expand really helped.  Also cleaned up early journal functions into correct modules and made the main.js much cleaner **test on event handler function - testing fix on event handler error**",
       "mood": "amazed",
       "id": 12
@@ -111,6 +111,13 @@
       "content": "mood filter was wiping out upon edit function being completed.  fixing target value of event listener to permanent fixture in html and then correcting function to still perform correctly",
       "mood": "amazed",
       "id": 18
+    },
+    {
+      "date": "2019-11-16",
+      "conceptsCovered": "juicebucket",
+      "content": "juicebuckdet",
+      "mood": "BrightEyed",
+      "id": 19
     }
   ]
 }

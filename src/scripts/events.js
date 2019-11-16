@@ -3,6 +3,7 @@ import allEntries from "./entriesDom.js"
 const journalList = document.querySelector("#journalList")
 const formList = document.querySelector(".form")
 console.log("journalList", journalList)
+
 const events = {
     // send event for new entries
     handleSendIt: () => {
@@ -28,51 +29,40 @@ const events = {
             mood: mood
         }
     },
-
-
-    // filterMoodEvent: () => {
-    //     // filters entries by mood selected
-    //     let filterMood
-    //     document.getElementsByName("moodButton").forEach(button => button.addEventListener("click", () => {
-    //         filterMood = event.target.value
-    //         console.log("filterMood", filterMood)
-    //         API.moodEntries(filterMood)
-    //             .then(response => allEntries.entryToDom(response))
-    //         console.log("filter mood", filterMood)
-    //     }))
-
-    // },
     filterMoodEvent: () => {
         formList.addEventListener("click", event => {
             let filterMood
-            document.getElementsByName("moodButton").forEach(button => {
+            document.getElementsByName("moodButton").forEach(() => {
                 filterMood = event.target.value
                 if (event.target.name.startsWith("moodButton")) {
                     API.moodEntries(filterMood)
                         .then(response => allEntries.entryToDom(response))
-                    console.log("2ndFilterMood", filterMood)
                 }
             })
         })
-},
+    },
 
     editJournalEntry: () => {
         journalList.addEventListener("click", event => {
-        if (event.target.id.startsWith("editEntry--")) {
-            console.log("edit button clicked")
-            const journalIdToEdit = event.target.id.split("--")[1]
-            console.log("edit id", journalIdToEdit)
-            API.updateForm(journalIdToEdit)
-        }
-    })
+            if (event.target.id.startsWith("editEntry--")) {
+                console.log("edit button clicked")
+                const journalIdToEdit = event.target.id.split("--")[1]
+                console.log("edit id", journalIdToEdit)
+                API.updateForm(journalIdToEdit)
+            }
+        })
     },
-searchJournalEntry: () => {
-    formList.addEventListener("keyup", event => {
-        if (event.target.id.startsWith("searchEntries--") && event.keyCode === 13) {
-            console.log("search button clicked")
-        }
-    })
-},
+    searchJournalEntry: () => {
+        formList.addEventListener("keyup", event => {
+            if (event.target.id.startsWith("searchEntries--") && event.keyCode === 13) {
+                const searchValue = document.getElementById("searchEntries--").value
+                console.log("searchValue", searchValue)
+                API.searchData(searchValue)
+                .then(entries => allEntries.entryToDom(entries))
+            }
+        })
+                    
+    },
     saveJournalEntry: () => {
         formList.addEventListener("click", event => {
             const hiddenJournalId = document.querySelector("#journalId")
@@ -87,19 +77,16 @@ searchJournalEntry: () => {
             }
         })
     },
-        deleteJournalEntry: () => {
-            journalList.addEventListener("click", event => {
-                if (event.target.id.startsWith("deleteEntry--")) {
-                    const entryToDelete = event.target.id.split("--")[1]
-                    console.log("entry to delete", entryToDelete)
-                    API.deleteEntry(entryToDelete)
-                        .then(API.myData)
-                }
-            })
-        }
+    deleteJournalEntry: () => {
+        journalList.addEventListener("click", event => {
+            if (event.target.id.startsWith("deleteEntry--")) {
+                const entryToDelete = event.target.id.split("--")[1]
+                console.log("entry to delete", entryToDelete)
+                API.deleteEntry(entryToDelete)
+                    .then(API.myData)
+            }
+        })
+    }
 }
-
-
-
 
 export default events;
