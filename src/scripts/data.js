@@ -8,7 +8,7 @@ const API = {
             })
     },
     searchData: (searchAll) => {
-        return fetch("http://localhost:3000/myJournalEntries?_sort=date&_order=desc")
+        return fetch(`http://localhost:3000/myJournalEntries?q=${searchAll}`)
             .then(entries => entries.json())
     },
     newEntry: (entryObject) => {

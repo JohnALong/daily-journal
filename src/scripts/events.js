@@ -29,29 +29,14 @@ const events = {
             mood: mood
         }
     },
-
-    // first filter attempt - errored out after editing entries because targeted to actual mood not something that stays on the dom
-    // filterMoodEvent: () => {
-    //     // filters entries by mood selected
-    //     let filterMood
-    //     document.getElementsByName("moodButton").forEach(button => button.addEventListener("click", () => {
-    //         filterMood = event.target.value
-    //         console.log("filterMood", filterMood)
-    //         API.moodEntries(filterMood)
-    //             .then(response => allEntries.entryToDom(response))
-    //         console.log("filter mood", filterMood)
-    //     }))
-
-    // },
     filterMoodEvent: () => {
         formList.addEventListener("click", event => {
             let filterMood
-            document.getElementsByName("moodButton").forEach(button => {
+            document.getElementsByName("moodButton").forEach(() => {
                 filterMood = event.target.value
                 if (event.target.name.startsWith("moodButton")) {
                     API.moodEntries(filterMood)
                         .then(response => allEntries.entryToDom(response))
-                    console.log("2ndFilterMood", filterMood)
                 }
             })
         })
@@ -72,12 +57,11 @@ const events = {
             if (event.target.id.startsWith("searchEntries--") && event.keyCode === 13) {
                 const searchValue = document.getElementById("searchEntries--").value
                 console.log("searchValue", searchValue)
-                console.log("search button clicked")
-                API.searchData()
-                .then(response => console.log("search test", response))
-                    .then(response => allEntries.entryToDom(response))
+                API.searchData(searchValue)
+                .then(entries => allEntries.entryToDom(entries))
             }
         })
+                    
     },
     saveJournalEntry: () => {
         formList.addEventListener("click", event => {
