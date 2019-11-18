@@ -1,10 +1,11 @@
 import allEntries from "./entriesDom.js"
 const API = {
     myData: () => {
-        return fetch("http://localhost:3000/myJournalEntries?_sort=date&_order=desc")
+        return fetch("http://localhost:3000/myJournalEntries?_sort=date&_order=desc&_expand=mood")
             .then(entries => entries.json())
             .then(parsedEntries => {
                 allEntries.entryToDom(parsedEntries)
+                // .then(allEntries.moodsToDom)
             })
     },
     searchData: (searchAll) => {
@@ -21,7 +22,7 @@ const API = {
         })
     },
     moodEntries: (filterMood) => {
-        return fetch(`http://localhost:3000/myJournalEntries?mood=${filterMood}`)
+        return fetch(`http://localhost:3000/myJournalEntries?&_expand=mood&moodId=${filterMood}`)
             .then(response => response.json())
     },
     updateForm: (journalId) => {
@@ -70,6 +71,14 @@ const API = {
             method: "DELETE"
         })
             .then(response => response.json())
+    },
+    myMoods: () => {
+        return fetch(`http://localhost:3000/moods`)
+        .then(moods => moods.json())
+        .then(parsedMoods => {
+            allEntries.moodsToDom(parsedMoods)
+        })
+
     }
 }
 

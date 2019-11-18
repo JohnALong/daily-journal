@@ -2,7 +2,6 @@ import API from "./data.js"
 import allEntries from "./entriesDom.js"
 const journalList = document.querySelector("#journalList")
 const formList = document.querySelector(".form")
-console.log("journalList", journalList)
 
 const events = {
     // send event for new entries

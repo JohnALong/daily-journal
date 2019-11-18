@@ -13,6 +13,7 @@ events.editJournalEntry()
 events.saveJournalEntry()
 events.searchJournalEntry()
 // events.filterMoodTakeTwo()
+API.myMoods()
 
 
 

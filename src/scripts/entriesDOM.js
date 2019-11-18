@@ -10,6 +10,13 @@ const allEntries = {
     formToDom: () => {
         let htmlForm = toDom.journalFormComponent()
         document.querySelector(".form").innerHTML = htmlForm
+    },
+    moodsToDom: (moodArray) => {
+        let moodString = ""
+        moodArray.forEach(mood => {
+            moodString += toDom.moodButtons(mood)
+        })
+        document.querySelector("#moodsSection").innerHTML = moodString
     }
 }
 export default allEntries;
