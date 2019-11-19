@@ -73,6 +73,10 @@ const events = {
                 if (hiddenJournalId.value !== "") {
                     API.saveEntry(journalId.value)
                         .then(API.myData)
+                        .then(parsedEntries => {
+                            (console.log("parsedEntries", parsedEntries))
+                            allEntries.entryToDom(parsedEntries)
+                        })
                 }
             } else {
                 console.log("it's not working")

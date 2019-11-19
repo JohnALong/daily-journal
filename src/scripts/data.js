@@ -5,7 +5,7 @@ const API = {
             .then(entries => entries.json())
     },
     searchData: (searchAll) => {
-        return fetch(`http://localhost:3000/myJournalEntries?q=${searchAll}`)
+        return fetch(`http://localhost:3000/myJournalEntries?&_expand=mood&q=${searchAll}`)
             .then(entries => entries.json())
     },
     newEntry: (entryObject) => {
