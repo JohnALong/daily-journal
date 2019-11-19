@@ -1,14 +1,11 @@
 import allEntries from "./entriesDom.js"
 const API = {
     myData: () => {
-        return fetch("http://localhost:3000/myJournalEntries?_sort=date&_order=desc")
+        return fetch("http://localhost:3000/myJournalEntries?_sort=date&_order=desc&_expand=mood")
             .then(entries => entries.json())
-            .then(parsedEntries => {
-                allEntries.entryToDom(parsedEntries)
-            })
     },
     searchData: (searchAll) => {
-        return fetch(`http://localhost:3000/myJournalEntries?q=${searchAll}`)
+        return fetch(`http://localhost:3000/myJournalEntries?&_expand=mood&q=${searchAll}`)
             .then(entries => entries.json())
     },
     newEntry: (entryObject) => {
@@ -21,7 +18,7 @@ const API = {
         })
     },
     moodEntries: (filterMood) => {
-        return fetch(`http://localhost:3000/myJournalEntries?mood=${filterMood}`)
+        return fetch(`http://localhost:3000/myJournalEntries?&_expand=mood&moodId=${filterMood}`)
             .then(response => response.json())
     },
     updateForm: (journalId) => {
@@ -29,16 +26,17 @@ const API = {
         const dateInput = document.querySelector("#date--")
         const conceptsInput = document.querySelector("#conceptsCovered--")
         const contentInput = document.querySelector("#content--")
-        const moodInput = document.querySelector("#mood--")
+        const moodInput = document.querySelector("#moodsSection")
 
-        fetch(`http://localhost:3000/myJournalEntries/${journalId}`)
+        fetch(`http://localhost:3000/myJournalEntries/${journalId}?_expand=mood`)
             .then(response => response.json())
             .then(entry => {
+                console.log("edit fetch", entry)
                 hiddenJournalId.value = entry.id
                 dateInput.value = entry.date
                 conceptsInput.value = entry.conceptsCovered
                 contentInput.value = entry.content
-                moodInput.value = entry.mood
+                moodInput.value = entry.moodId
             })
     },
     saveEntry: (journalId) => {
@@ -46,7 +44,7 @@ const API = {
             date: document.querySelector("#date--").value,
             conceptsCovered: document.querySelector("#conceptsCovered--").value,
             content: document.querySelector("#content--").value,
-            mood: document.querySelector("#mood--").value
+            moodId: parseInt(document.querySelector("#moodsSection").value)
         }
 
         return fetch(`http://localhost:3000/myJournalEntries/${journalId}`, {
@@ -62,7 +60,7 @@ const API = {
                 document.querySelector("#date--").value = ""
                 document.querySelector("#conceptsCovered--").value = ""
                 document.querySelector("#content--").value = ""
-                document.querySelector("#mood--").value = ""
+                document.querySelector("#moodsSection").value = ""
             })
     },
     deleteEntry: (journalId) => {
@@ -70,6 +68,10 @@ const API = {
             method: "DELETE"
         })
             .then(response => response.json())
+    },
+    myMoods: () => {
+        return fetch(`http://localhost:3000/moods`)
+            .then(moods => moods.json())
     }
 }
 

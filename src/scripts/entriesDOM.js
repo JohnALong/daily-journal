@@ -1,4 +1,5 @@
 import toDom from "./entryComponent.js"
+import API from "./data.js"
 const allEntries = {
     entryToDom: (journalArray) => {
         let htmlString = ""
@@ -10,6 +11,19 @@ const allEntries = {
     formToDom: () => {
         let htmlForm = toDom.journalFormComponent()
         document.querySelector(".form").innerHTML = htmlForm
+        API.myMoods()
+            .then(parsedMoods => {
+                allEntries.moodsToDom(parsedMoods)
+            })
+    },
+    moodsToDom: (moodArray) => {
+        const moodSectionTest = document.querySelector("#moodsSection")
+        moodArray.forEach(mood => {
+            console.log("moodString", mood.label)
+            moodSectionTest.innerHTML += toDom.moodButtons(mood)
+        })
+
+        // document.querySelector("#moodsSection").innerHTML = moodString
     }
 }
 export default allEntries;
