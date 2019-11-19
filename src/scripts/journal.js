@@ -5,6 +5,10 @@ import events from "./events.js"
 allEntries.formToDom()
 // debugger
 API.myData()
+.then(parsedEntries => {
+    (console.log("parsedEntries", parsedEntries))
+    allEntries.entryToDom(parsedEntries)
+})
 events.handleSendIt()
 
 events.filterMoodEvent()
@@ -13,7 +17,8 @@ events.editJournalEntry()
 events.saveJournalEntry()
 events.searchJournalEntry()
 // events.filterMoodTakeTwo()
-API.myMoods()
+           
+
 
 
 

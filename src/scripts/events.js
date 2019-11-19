@@ -12,20 +12,23 @@ const events = {
                 let date = document.getElementById("date--").value
                 let conceptsCovered = document.getElementById("conceptsCovered--").value
                 let content = document.getElementById("content--").value
-                let mood = document.getElementById("mood--").value
-                const entryObject = events.createJournalEntry(date, conceptsCovered, content, mood)
+                let moodId = document.querySelector(".moodClass").value
+                const entryObject = events.createJournalEntry(date, conceptsCovered, content, moodId)
                 console.log("please let this work", entryObject)
-                API.newEntry(entryObject).then(API.myData).then(allEntries.formToDom)
+                API.newEntry(entryObject).then(API.myData).then((parsedEntries) => {
+                    allEntries.entryToDom(parsedEntries)
+                    document.querySelector("form").reset()
+                })
             }
         })
     },
     // factory function for entries
-    createJournalEntry: (date, conceptsCovered, content, mood) => {
+    createJournalEntry: (date, conceptsCovered, content, moodId) => {
         return {
             date: date,
             conceptsCovered: conceptsCovered,
             content: content,
-            mood: mood
+            moodId: parseInt(moodId)
         }
     },
     filterMoodEvent: () => {
@@ -57,10 +60,10 @@ const events = {
                 const searchValue = document.getElementById("searchEntries--").value
                 console.log("searchValue", searchValue)
                 API.searchData(searchValue)
-                .then(entries => allEntries.entryToDom(entries))
+                    .then(entries => allEntries.entryToDom(entries))
             }
         })
-                    
+
     },
     saveJournalEntry: () => {
         formList.addEventListener("click", event => {
@@ -83,6 +86,7 @@ const events = {
                 console.log("entry to delete", entryToDelete)
                 API.deleteEntry(entryToDelete)
                     .then(API.myData)
+                    .then(allEntries.entryToDom)
             }
         })
     }

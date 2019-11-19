@@ -128,10 +128,10 @@
       "id": 17
     },
     {
-      "date": "2019-11-10",
-      "conceptsCovered": "fixing mood filter",
-      "content": "mood filter was wiping out upon edit function being completed.  fixing target value of event listener to permanent fixture in html and then correcting function to still perform correctly",
-      "moodId": 3,
+      "date": "2019-11-19",
+      "conceptsCovered": "save test",
+      "content": "save save save",
+      "moodId": 1,
       "id": 18
     }
   ]

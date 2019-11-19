@@ -1,7 +1,8 @@
 const toDom = {
     journalEntryComponent: (journalEntry) => {
+        console.log("journalEntry", journalEntry.mood)
         return `
-        <div class=entries>
+        <div class="entries">
             <div class="date">${journalEntry.date}</div>
             <div class="concepts">${journalEntry.conceptsCovered}</div>
             <div class="content">${journalEntry.content}</div>
@@ -28,7 +29,10 @@ const toDom = {
                 <label for="journalEntry">Journal entry</label>
                 <textarea name="journalEntry" id="content--" cols="30" rows="10" required></textarea>
             </fieldset>
-            <fieldset id="moodsSection">
+            <fieldset>
+            <select id="moodsSection" name="moodOfDay">
+            </select>
+
              </fieldset>
         </form>
         <button id="submit--button">Send it!</button>
@@ -53,12 +57,27 @@ const toDom = {
         </div>
         `
     },
-    moodButtons: (moodArray) => {
+    moodButtons: (moodObject) => {
         return `
-        <input type="radio" id="${moodArray.label}" name="moodButton" value = ${moodArray.id} checked>
-                <label for="${moodArray.label}">${moodArray.label}</label> 
-                `
-    }
+            <option class="moodClass" id="mood--${moodObject.id}" value="${moodObject.id}">${moodObject.label}</option>
+        `
+    },
+    //     <fieldset>
+    //     <select name="moodOfDay" id="mood--">
+    //         <option value="exhausted">Exhausted</option>
+    //         <option value="BrightEyed">Bright Eyed</option>
+    //         <option value="dejected">Dejected</option>
+    //         <option value="amazed">Amazed</option>
+    //         <option value="nervous">Nervous</option>
+    //     </select>
+    //  </fieldset>
+
+    // filterMoodButtons: (moodArray) => {
+    //     return `
+    //     <input type="radio" id="${moodArray.label}" name="moodButton" value = ${moodArray.id} checked>
+    //             <label for="${moodArray.label}">${moodArray.label}</label> 
+    //             `
+    // }
 }
 export default toDom;
 
